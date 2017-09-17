@@ -15,7 +15,7 @@ uniform float uSpecularPower;
 uniform sampler2D uTex0;
 uniform sampler2D uTex1;
 uniform sampler2D uTex2;
-//uniform sampler2D uTex3;
+uniform sampler2D uTex3;
 
 in vec3 vNormal;
 in vec3 vViewPath;
@@ -42,6 +42,11 @@ void main() {
     		specularIntensity = pow(max(dot(R, V), 0.0), uSpecularPower);
     	}
         vec3 specular = specularIntensity * uSpecularLight * uSpecularMaterial;
+        float blendFactor = clamp((vDepth - 0.99) * 100.0, 0.0, 1.0);
+
+
+         vec2 farCoord = vTexCoord * 10.0;
+         vec2 nearCoord = vTexCoord * 50.0;
 
          vec4 texel = texture(uTex0, vTexCoord) * clamp(vTexRGBA.x/255, 0.0, 1.0) +
             texture(uTex1, vTexCoord) * clamp(vTexRGBA.y/255, 0.0, 1.0) +

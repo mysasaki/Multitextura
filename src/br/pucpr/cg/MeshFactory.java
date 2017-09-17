@@ -351,7 +351,7 @@ public class MeshFactory {
             normal.normalize();
         }
 
-        //Calculo das texturas
+        //Calculo das textura RGB
         List<Vector4f> texRGBA = new ArrayList<>();
         float tx = 1.0f / width * texRepeat;
         float ty = 1.0f / depth * texRepeat;
@@ -367,10 +367,6 @@ public class MeshFactory {
             for (int x = 0; x < img2.getWidth(); x++) {
                 Color color = new Color(img2.getRGB(x, y));
                 texRGBA.add(new Vector4f((float)color.getRed(), (float)color.getGreen(), (float)color.getBlue(), (float)color.getAlpha()));
-                System.out.println(clamp(0.0, (float)color.getRed()/255, 1.0) + " - " +
-                        clamp(0.0, (float)color.getGreen()/255, 1.0) + " - " +
-                        clamp(0.0, (float)color.getBlue()/255, 1.0) + " - " +
-                        clamp(0.0, (float)color.getAlpha()/255, 1.0));
             }
         }
 

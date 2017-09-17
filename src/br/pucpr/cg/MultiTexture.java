@@ -20,6 +20,13 @@ import br.pucpr.mage.phong.DirectionalLight;
 import br.pucpr.mage.phong.MultiTextureMaterial;
 import br.pucpr.mage.postfx.PostFXMaterial;
 
+/**
+ * EXERCICIO 01:
+ * O SHADER PHONGBM UTILIZA A BLENDMAP RGB PARA TEXTURIZAR O RELEVO.
+ * O EXERCICIO FOI TRABALHADO EM CIMA DO PROJETO JA FEITO EM SALA DE AULA
+ *
+ */
+
 public class MultiTexture implements Scene {
     private static final String PATH = "C:/prog3d-img/opengl/";
     
@@ -73,8 +80,8 @@ public class MultiTexture implements Scene {
         material.setTextures(
                 new Texture(PATH + "textures/snow.png"),
                 new Texture(PATH + "textures/rock.png"),
-                new Texture(PATH + "textures/grass.png"));
-                //new Texture(PATH + "textures/sand.png"));
+                new Texture(PATH + "textures/grass.png"),
+                new Texture(PATH + "textures/sand.png"));
 
         canvas = MeshFactory.createCanvas();
         fb = FrameBuffer.forCurrentViewport();
